@@ -55,9 +55,9 @@ public class BarController implements Initializable {
 
     private String[] getProducts() {
         return new String[] {
-            "Beer",
-            "Wine",
-            "Tequilla shot"
+                "Beer",
+                "Wine",
+                "Tequilla shot"
         };
     }
 
