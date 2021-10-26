@@ -6,13 +6,13 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="476.0" prefWidth="320" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="barmanager.gui.BarController">
+<AnchorPane id="AnchorPane" prefHeight="476.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="barmanager.gui.BarController">
     <children>
         <Button fx:id="button" layoutX="224.0" layoutY="86.0" onAction="#orderDrink" text="Order drink" />
         <ListView fx:id="lstOrderedProducts" layoutX="14.0" layoutY="128.0" prefHeight="335.0" prefWidth="291.0" />
         <Label layoutX="14.0" layoutY="19.0" text="Proof:" />
         <ChoiceBox fx:id="cbProof" layoutX="119.0" layoutY="14.0" prefHeight="27.0" prefWidth="185.0" />
         <Label layoutX="14.0" layoutY="57.0" text="Products:" />
-        <Label fx:id="lblProducts" layoutX="119.0" layoutY="52.0" prefHeight="17.0" prefWidth="185.0" />
+        <Label fx:id="lblProducts" layoutX="78.0" layoutY="57.0" prefHeight="17.0" prefWidth="228.0" />
     </children>
 </AnchorPane>

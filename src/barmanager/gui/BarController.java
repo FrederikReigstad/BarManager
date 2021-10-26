@@ -1,6 +1,8 @@
 package barmanager.gui;
 
 import barmanager.be.Drink;
+import bil.DrinkFactory;
+import bil.IDrink;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
@@ -15,6 +17,8 @@ public class BarController implements Initializable {
     private static final String MILD_PROOF = "Mild";
     private static final String MEDIUM_PROOF = "Medium";
     private static final String STRONG_PROOF = "Strong";
+    IDrink iDrink = DrinkFactory.iDrink();
+
 
     @FXML
     private ChoiceBox<String> cbProof;
@@ -32,11 +36,16 @@ public class BarController implements Initializable {
         prepareProducts();
     }
 
+    private void prepareProducts()
+    {
+        lblProducts.setText(String.join(", ", iDrink.getProducts()));
+    }
+
     @FXML
     private void orderDrink()
     {
         String proof = cbProof.getValue();
-        Drink drink = createDrink(proof);
+        Drink drink = iDrink.createDrink(proof);
         lstOrderedProducts.getItems().add(drink.toString());
     }
 
@@ -48,30 +57,7 @@ public class BarController implements Initializable {
         );
     }
 
-    private void prepareProducts()
-    {
-        lblProducts.setText(String.join(", ", getProducts()));
-    }
 
-    private String[] getProducts() {
-        return new String[] {
-                "Beer",
-                "Wine",
-                "Tequilla shot"
-        };
-    }
 
-    private Drink createDrink(String proofDescription)
-    {
-        switch (proofDescription)
-        {
-            case MILD_PROOF:
-                return new Drink("Beer", 33);
-            case MEDIUM_PROOF:
-                return new Drink("Wine", 75);
-            case STRONG_PROOF:
-                return new Drink("Tequilla shot", 2);
-        }
-        return null;
-    }
+
 }
